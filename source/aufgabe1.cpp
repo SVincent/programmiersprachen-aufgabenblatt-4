@@ -10,7 +10,7 @@ int main() {
   // deklariere und initialisiere p_2 als nullptr
   int* p_2 = nullptr;
   // erzeuge dynamische Variable und speichere Adresse in p_2
-       p_1 = new int(5);
+       p_2 = new int(5);
 
   /* p_1 und p_2 referenzieren nun verschiedene Speicheradressen;
      p_1 zeigt auf eine Integer-Variable mit dem Wert 8,
@@ -25,7 +25,7 @@ int main() {
 
   /* kopiere referenziertes Objekt von p_2 in p_1 mittels
      Dereferenzierung beider Pointer-Variablen*/
-  p_1 = p_2;
+  *p_1 = *p_2;
 
   /* p_1 und p_2 sind nach wie vor verschiedene Objekte;
      p_1 zeigt auf eine Integer-Variable mit dem Wert 5,
@@ -42,7 +42,7 @@ int main() {
   delete p_2;
   p_2 = nullptr;
 
-  // gebe Speicher dynamischer Variable referenziert von p_2 frei
+  // gebe Speicher dynamischer Variable referenziert von p_1 frei
   delete p_1;
   p_1 = nullptr;
   
