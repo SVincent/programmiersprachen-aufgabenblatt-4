@@ -63,11 +63,13 @@ CMAKE_BINARY_DIR = /home/vincent/Documents/programmiersprachen/programmiersprach
 # Directory level rules for directory source
 
 # Convenience name for "all" pass in the directory.
+source/all: source/CMakeFiles/TestList.dir/all
 source/all: source/CMakeFiles/aufgabe1.dir/all
 
 .PHONY : source/all
 
 # Convenience name for "clean" pass in the directory.
+source/clean: source/CMakeFiles/TestList.dir/clean
 source/clean: source/CMakeFiles/aufgabe1.dir/clean
 
 .PHONY : source/clean
@@ -78,13 +80,50 @@ source/preinstall:
 .PHONY : source/preinstall
 
 #=============================================================================
+# Target rules for target source/CMakeFiles/TestList.dir
+
+# All Build rule for target.
+source/CMakeFiles/TestList.dir/all:
+	$(MAKE) -f source/CMakeFiles/TestList.dir/build.make source/CMakeFiles/TestList.dir/depend
+	$(MAKE) -f source/CMakeFiles/TestList.dir/build.make source/CMakeFiles/TestList.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/CMakeFiles --progress-num=1,2 "Built target TestList"
+.PHONY : source/CMakeFiles/TestList.dir/all
+
+# Include target in all.
+all: source/CMakeFiles/TestList.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/CMakeFiles/TestList.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/TestList.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/CMakeFiles 0
+.PHONY : source/CMakeFiles/TestList.dir/rule
+
+# Convenience name for target.
+TestList: source/CMakeFiles/TestList.dir/rule
+
+.PHONY : TestList
+
+# clean rule for target.
+source/CMakeFiles/TestList.dir/clean:
+	$(MAKE) -f source/CMakeFiles/TestList.dir/build.make source/CMakeFiles/TestList.dir/clean
+.PHONY : source/CMakeFiles/TestList.dir/clean
+
+# clean rule for target.
+clean: source/CMakeFiles/TestList.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target source/CMakeFiles/aufgabe1.dir
 
 # All Build rule for target.
 source/CMakeFiles/aufgabe1.dir/all:
 	$(MAKE) -f source/CMakeFiles/aufgabe1.dir/build.make source/CMakeFiles/aufgabe1.dir/depend
 	$(MAKE) -f source/CMakeFiles/aufgabe1.dir/build.make source/CMakeFiles/aufgabe1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/CMakeFiles --progress-num=1,2 "Built target aufgabe1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/CMakeFiles --progress-num=3,4 "Built target aufgabe1"
 .PHONY : source/CMakeFiles/aufgabe1.dir/all
 
 # Include target in all.
