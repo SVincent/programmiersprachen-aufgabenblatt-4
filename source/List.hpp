@@ -28,12 +28,38 @@ struct ListNode {
     ListNode* next = nullptr;
 };
 
+//Task 4.5
 template <typename T>
 class ListIterator {
 public:
+    using Self              = ListIterator <T>;
+
+    using value_type        = T;
+    using pointer           = T*;
+    using reference         = T&;
+    using difference_type   = ptrdiff_t;
+    using iterator_category = std::bidirectional_iterator_tag;
+
+ListIterator() {} // not implemented yet ; initialisierlist ?
+ListIterator(ListNode <T>* n) {} // not implemented yet ; initialiserlist ?
+reference operator*() const {} // not implemented yet
+pointer operator->() const {} // not implemented yet
+Self& operator ++() {} // not implemented yet
+Self operator ++(int) {} // not implemented yet
+bool operator ==(Self const& x) const {} // not implemented yet
+bool operator !=(Self const& x) const {} // not implemented yet
+Self next() const {
+    if (node) {
+        return ListIterator(node->next);
+    }
+    else {
+        return ListIterator(nullptr);
+    }
+}
 
 private:
-    ListNode <T >* node ;
+// The Node the iterator is pointing to
+ListNode <T>* node;
 };
 
 template <typename T>
