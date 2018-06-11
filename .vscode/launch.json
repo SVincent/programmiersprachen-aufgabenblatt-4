@@ -4,12 +4,30 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "(gdb) Launch",
+            "name": "(gdb) Launch TestList",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/vincent/Documents/programmiersprachen/programmiersprachen-aufgabenblatt-4/build/source/aufgabe1",
+            "program": "/${workspaceFolder}/build/source/TestList",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Launch aufgabe1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/source/aufgabe1",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
