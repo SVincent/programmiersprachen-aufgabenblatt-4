@@ -97,6 +97,17 @@ TEST_CASE ("test for list comparison, same size" , "Task 4.7") {
     REQUIRE (list1 != list2);
 } 
 
+//Task 4.8
+TEST_CASE ("test for copy constructor", "Task 4.8") {
+    List<int> list; 
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    List<int> list2{list};
+    REQUIRE(list == list2);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

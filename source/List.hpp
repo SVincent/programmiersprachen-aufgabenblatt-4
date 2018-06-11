@@ -126,6 +126,17 @@ List(): //not sure I get initialiser lists
     first_{nullptr}, 
     last_{nullptr} 
     {}
+
+//Task 4.8: copy constructor
+List(List<T> const& list): //deep copy, shallow not useful for lists
+    size_{0},
+    first_{nullptr},
+    last_{nullptr}
+    {
+        for (auto c = list.begin(); c!=nullptr; ++c) {
+            push_back(*c);
+        }
+    }
     
 //destructor:   - Task 4.4
 ~List() {
