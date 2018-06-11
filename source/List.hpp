@@ -153,6 +153,16 @@ std::size_t size() const {
     return size_;
 }
 
+//Task 4.13
+List(List<T>&& rhs) : //rhs: right hand side - rvalue
+    size_(rhs.size()), //(moves size_ from rhs into the list)
+    first_(rhs.first_),
+    last_(rhs.last_) {
+    rhs.size_= 0;   //clean up rhs
+    rhs.first_ = nullptr;
+    rhs.last_ = nullptr;
+}
+
 //Task 4.3
 
 void push_front(T const& value) {

@@ -139,6 +139,7 @@ TEST_CASE ("test for reverse()", "Task 4.10") {
     REQUIRE (list != list2);
 }
 
+//Task 4.11
 TEST_CASE ("test for std::copy to vector", "Task 4.11") {
     List<int> list;
     list.push_back(1);
@@ -149,6 +150,19 @@ TEST_CASE ("test for std::copy to vector", "Task 4.11") {
     std::vector<int> vector(list.size());
     std::copy(list.begin(), list.end(), vector.begin());
     REQUIRE (1 == *vector.begin());
+}
+
+//Task 4.13
+TEST_CASE ("test for move constructor", "Task 4.13") {
+    List<int> list;
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    List<int> list2 = std::move(list);
+    REQUIRE (0 == list.size());
+    REQUIRE (list.empty());
+    REQUIRE (4 == list2.size());
 }
 
 int main(int argc, char *argv[])
