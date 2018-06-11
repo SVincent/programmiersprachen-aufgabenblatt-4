@@ -248,6 +248,23 @@ iterator end () const {
     return iterator();
 } 
 
+//Task 4.9
+void insert (ListIterator<T> const& position, T const& value) {
+    auto n = position.getNode();
+    if (n->prev != nullptr) { //if the old node at the position needs to be moved
+        ListNode <T>* insertnode = new ListNode<T> {value, n->prev, n}; 
+        n->prev->next = insertnode; 
+        n->prev = insertnode;
+        ++size_;
+    }
+    else if (n->prev == nullptr) { //if we want to insert at the beginning
+        push_front(value);
+    }
+    else { //empty list
+        push_back(value);
+    }
+}
+
 private:
     std::size_t size_;
     ListNode<T>* first_;
