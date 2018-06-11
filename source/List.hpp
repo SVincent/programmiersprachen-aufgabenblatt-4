@@ -40,14 +40,44 @@ public:
     using difference_type   = ptrdiff_t;
     using iterator_category = std::bidirectional_iterator_tag;
 
-ListIterator() {} // not implemented yet ; initialisierlist ?
-ListIterator(ListNode <T>* n) {} // not implemented yet ; initialiserlist ?
-reference operator*() const {} // not implemented yet
-pointer operator->() const {} // not implemented yet
-Self& operator ++() {} // not implemented yet
-Self operator ++(int) {} // not implemented yet
-bool operator ==(Self const& x) const {} // not implemented yet
-bool operator !=(Self const& x) const {} // not implemented yet
+//constructors
+ListIterator():
+    node{nullptr}
+{}
+
+ListIterator(ListNode <T>* n):
+    node{n}
+{}
+
+//methods
+reference operator*() const { //not a multiplication operator, but dereferencing
+    return node->value;
+}
+
+pointer operator->() const {
+    return &(node->value);
+}
+
+Self& operator++() { //iterate to next element in list
+    node = node->next; 
+    return *this;
+}
+
+Self operator++(int) { //
+    Self current = *this;
+    ++(*this);
+    return current;
+
+}
+
+bool operator==(Self const& x) const {
+    return node == x->node;
+}
+
+bool operator!=(Self const& x) const {
+    return node != x->node;
+}
+
 Self next() const {
     if (node) {
         return ListIterator(node->next);
@@ -59,7 +89,7 @@ Self next() const {
 
 private:
 // The Node the iterator is pointing to
-ListNode <T>* node;
+    ListNode <T>* node;
 };
 
 template <typename T>
