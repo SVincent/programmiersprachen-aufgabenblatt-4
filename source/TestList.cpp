@@ -78,6 +78,25 @@ TEST_CASE ("test for begin(), end() on list with one element", "Task 4.6") {
     REQUIRE(42 == *list.begin());
 } 
 
+//Task 4.7
+TEST_CASE ("test for list comparison, different size" , "Task 4.7") {
+    List<int> list1;
+    List<int> list2;
+    list1.push_front(42);   
+    REQUIRE (list1 != list2);
+} 
+
+TEST_CASE ("test for list comparison, same size" , "Task 4.7") {
+    List<int> list1;
+    List<int> list2;
+    list1.push_front(42);  
+    list2.push_front(42);   
+    REQUIRE(list1 == list2);
+    list1.push_front(42);  
+    list2.push_front(43);   
+    REQUIRE (list1 != list2);
+} 
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

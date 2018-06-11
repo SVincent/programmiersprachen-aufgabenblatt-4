@@ -243,4 +243,36 @@ private:
     ListNode<T>* last_;
 
 };
+
+//Task 4.7
+template <typename T>
+bool operator==(List<T> const& xs, List<T> const& ys) { //true if two lists have the same content
+    //if the two lists aren't of the same length, they can't be the same
+    if (xs.size() != ys.size()) {
+        return false;
+    }
+    //if the two lists have the same length, we need to iterate over the contents
+    else {
+        ListIterator<T> X = xs.begin();
+        ListIterator<T> Y = ys.begin();
+        while (X != xs.end()) {
+            //if a single element of the two lists is different, we know the lists are different
+            if (*X != *Y) {
+                return false;
+            }
+            else {
+                ++X;
+                ++Y;
+            }    
+        }
+        //if we reach the end of the list, we know they are the same
+        return true;
+    }
+}
+
+template <typename T>
+bool operator!=(List<T> const& xs, List<T> const& ys) {
+    return !(xs==ys);
+}
+
 # endif // # define BUW_LIST_HPP
