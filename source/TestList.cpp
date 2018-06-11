@@ -53,6 +53,17 @@ TEST_CASE ("test for pop_back", "Task 4.3") {
     REQUIRE (list.empty());
 }
 
+//Task 4.4
+TEST_CASE ("stest for clean()" , "Task 4.4") {
+    List<int> list;
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    list.clear();
+    REQUIRE (list.empty());
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

@@ -58,7 +58,7 @@ public:
 
 //Task 4.2
 
-//default constructor:
+//constructor:
 
 List(): //not sure I get initialiser lists
     size_{0}, 
@@ -66,6 +66,11 @@ List(): //not sure I get initialiser lists
     last_{nullptr} 
     {}
     
+//destructor:   - Task 4.4
+~List() {
+    clear();
+}
+
 bool empty() const {
     return size_ == 0;
 }
@@ -153,6 +158,12 @@ T back() const{
     return last_->value;
 }
 
+//Task 4.4
+void clear() {
+    while (!empty()) {
+        pop_front();
+    }             
+}
 
 private:
     std::size_t size_;
