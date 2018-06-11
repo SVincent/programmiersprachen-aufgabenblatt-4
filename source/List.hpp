@@ -70,12 +70,17 @@ Self operator++(int) { //
 
 }
 
+//helper function: getNode
+ListNode<T>* getNode() const{
+    return node;
+}
+
 bool operator==(Self const& x) const {
-    return node == x->node;
+    return node == x.getNode();
 }
 
 bool operator!=(Self const& x) const {
-    return node != x->node;
+    return node != x.getNode();
 }
 
 Self next() const {
@@ -126,6 +131,8 @@ List(): //not sure I get initialiser lists
 ~List() {
     clear();
 }
+
+//methods
 
 bool empty() const {
     return size_ == 0;
@@ -220,6 +227,15 @@ void clear() {
         pop_front();
     }             
 }
+
+//Task 4.5
+iterator begin () const {//iterator: using
+    return iterator(first_);   
+}
+
+iterator end () const {
+    return iterator();
+} 
 
 private:
     std::size_t size_;

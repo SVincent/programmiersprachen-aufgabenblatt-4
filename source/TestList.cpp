@@ -54,7 +54,7 @@ TEST_CASE ("test for pop_back", "Task 4.3") {
 }
 
 //Task 4.4
-TEST_CASE ("stest for clean()" , "Task 4.4") {
+TEST_CASE ("test for clean()" , "Task 4.4") {
     List<int> list;
     list.push_front(1);
     list.push_front(2);
@@ -63,6 +63,20 @@ TEST_CASE ("stest for clean()" , "Task 4.4") {
     list.clear();
     REQUIRE (list.empty());
 }
+
+//Task 4.6
+TEST_CASE ("test for begin(), end() on empty list", "Task 4.6") {
+    List<int> list;
+    auto b = list.begin();
+    auto e = list.end();
+    REQUIRE (b == e);
+}
+
+TEST_CASE ("test for begin(), end() on list with one element", "Task 4.6") {
+    List<int> list;
+    list.push_front(42);
+    REQUIRE(42 == *list.begin());
+} 
 
 int main(int argc, char *argv[])
 {
