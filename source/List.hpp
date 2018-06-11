@@ -265,6 +265,24 @@ void insert (ListIterator<T> const& position, T const& value) {
     }
 }
 
+//Task 4.10
+void reverse() { //reverse list by switching first_ and last_, as well as next and prev for all nodes
+    ListNode<T>* current = new ListNode<T>;
+    current = first_;
+    ListNode<T>* helper = new ListNode<T>();
+    while(current != nullptr) {
+        helper = current->next;
+        current->next = current->prev;
+        current->prev = helper;
+        if (helper == nullptr) { 
+            last_ = first_;
+            first_ = current;
+        } 
+        current = helper;
+    }
+           
+}
+
 private:
     std::size_t size_;
     ListNode<T>* first_;
@@ -301,6 +319,14 @@ bool operator==(List<T> const& xs, List<T> const& ys) { //true if two lists have
 template <typename T>
 bool operator!=(List<T> const& xs, List<T> const& ys) {
     return !(xs==ys);
+}
+
+//Task 4.10
+template <typename T>
+List<T> reverse(List<T>const& xs) {
+    List<T> new_list(xs);
+    new_list.reverse();
+    return new_list;
 }
 
 # endif // # define BUW_LIST_HPP

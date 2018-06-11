@@ -105,11 +105,11 @@ TEST_CASE ("test for copy constructor", "Task 4.8") {
     list.push_front(3);
     list.push_front(4);
     List<int> list2{list};
-    REQUIRE(list == list2);
+    REQUIRE (list == list2);
 }
 
 //Task 4.9
-TEST_CASE("test for insert()", "Task 4.9") {
+TEST_CASE ("test for insert()", "Task 4.9") {
     List<int> list;
     list.push_back(1);
     list.push_back(2);
@@ -117,10 +117,26 @@ TEST_CASE("test for insert()", "Task 4.9") {
     list.push_back(4);
     ListIterator<int> li(list.begin());
     list.insert(li, 0);
-    REQUIRE(list.front() == 0);
+    REQUIRE (list.front() == 0);
     list.clear();
     list.insert(li, 5);
-    REQUIRE(list.front() == 5);
+    REQUIRE (list.front() == 5);
+}
+
+//Task 4.10
+TEST_CASE ("test for reverse()", "Task 4.10") {
+    List<int> list;
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    List<int> list2 = reverse(list);
+    list.reverse();
+    REQUIRE (list.front() == 1);
+    REQUIRE (list == list2);
+    list.reverse();
+    REQUIRE (list.front() == 4);
+    REQUIRE (list != list2);
 }
 
 int main(int argc, char *argv[])
