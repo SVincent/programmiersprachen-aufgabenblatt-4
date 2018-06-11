@@ -54,7 +54,7 @@ TEST_CASE ("test for pop_back", "Task 4.3") {
 }
 
 //Task 4.4
-TEST_CASE ("test for clean()" , "Task 4.4") {
+TEST_CASE ("test for clean()", "Task 4.4") {
     List<int> list;
     list.push_front(1);
     list.push_front(2);
@@ -63,6 +63,41 @@ TEST_CASE ("test for clean()" , "Task 4.4") {
     list.clear();
     REQUIRE (list.empty());
 }
+
+/* //Task 4.5
+TEST_CASE ("test for iterator constructors", "Task 4.5") {
+    List<int> list;
+    ListIterator<int> li1();
+    REQUIRE (li1 == nullptr);
+
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    ListIterator<int> li2(list.begin());
+    REQUIRE (li2 == list.begin());
+}
+
+TEST_CASE ("test for iterator operators", "Task 4.5") {
+    List<int> list;
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    ListIterator<int> li(list.begin());
+
+    //operators
+    REQUIRE (*li == 3);
+
+    //pre-increment and post-increment in iterators should be the same?
+    li++;
+    REQUIRE (*li == 2);
+    //li++5;
+    REQUIRE (*li == 1);
+    REQUIRE (*li != 3);
+
+    //REQUIRE (li2->next == nullptr);
+} */
+
 
 //Task 4.6
 TEST_CASE ("test for begin(), end() on empty list", "Task 4.6") {

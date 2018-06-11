@@ -43,11 +43,11 @@ public:
 //constructors
 ListIterator():
     node{nullptr}
-{}
+    {}
 
 ListIterator(ListNode <T>* n):
     node{n}
-{}
+    {}
 
 //methods
 reference operator*() const { //not a multiplication operator, but dereferencing
@@ -58,12 +58,12 @@ pointer operator->() const {
     return &(node->value);
 }
 
-Self& operator++() { //iterate to next element in list
+Self& operator++() { //pre-increment
     node = node->next; 
     return *this;
 }
 
-Self operator++(int) { //
+Self operator++(int) { //post-increment
     Self current = *this;
     ++(*this);
     return current;
@@ -100,8 +100,7 @@ private:
 template <typename T>
 class ListConstIterator {
 public:
-// not implemented yet
-// do not forget about the initialiser lists !
+//what are we supposed to implement here?
 private:
     ListNode <T>* node;
 };
