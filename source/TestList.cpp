@@ -139,6 +139,18 @@ TEST_CASE ("test for reverse()", "Task 4.10") {
     REQUIRE (list != list2);
 }
 
+TEST_CASE ("test for std::copy to vector", "Task 4.11") {
+    List<int> list;
+    list.push_back(1);
+    list.push_back(2);
+    list.push_back(3);
+    list.push_back(4);
+    //vector needs to have a size before using it, unless you want errors again
+    std::vector<int> vector(list.size());
+    std::copy(list.begin(), list.end(), vector.begin());
+    REQUIRE (1 == *vector.begin());
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
